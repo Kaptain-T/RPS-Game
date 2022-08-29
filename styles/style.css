@@ -3,7 +3,7 @@
   --dark-text: hsl(229, 25%, 31%);
   --score-text: hsl(229, 64%, 46%);
   --header-outline: hsl(217, 16%, 45%);
-  --radial-gradient:hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+  --radial-gradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
   --scissors-gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
   --paper-gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
   --rock-gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
@@ -25,15 +25,16 @@ li {
 
 body {
   background: radial-gradient(var(--radial-gradient));
+  position: relative;
   height: 100vh;
   width: 100vw;
   color: white;
+  user-select: none;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
 }
 
 .innerbox {
@@ -44,41 +45,40 @@ main {
   align-items: center;
   padding-inline: 10px;
   width: 43%;
-  height: 125px;
+  height: 135px;
   border: 2px solid var(--header-outline);
   border-radius: 10px;
   margin: auto;
   margin-top: 30px;
 }
 
-.options li {
-  font-stretch: semi-condensed;
-  font-size: 26px;
-  line-height: 22px;
-  font-weight: 700;
+.options img {
+  transform: scale(0.85);
 }
 
 .scorebox {
   font-family: "Barlow Semi Condensed";
   display: flex;
   flex-direction: column;
-  width: 120px;
-  height: 90px;
+  width: 130px;
+  height: 100px;
   background-color: white;
   border-radius: 8px;
   justify-content: center;
   align-items: center;
+  margin-right: 10px;
 }
 
 .scoretext {
-  font-size: 13px;
+  font-size: 14px;
+  letter-spacing: 2px;
   color: var(--score-text);
   font-weight: 600;
 }
 
 .score {
   color: var(--dark-text);
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   line-height: 48px;
   font-stretch: semi-condensed;
@@ -102,7 +102,7 @@ main {
 
 .choice {
   display: flex;
-  background-color: #E7E4EA;
+  background-color: #e7e4ea;
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -117,7 +117,7 @@ main {
 
 .choice::before {
   content: "";
-  box-shadow: 0 -6px 0 0 #B7BDDA;
+  box-shadow: 0 -6px 0 0 #b7bdda;
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -130,27 +130,29 @@ main {
   position: absolute;
   right: 95px;
   bottom: 30px;
-  border: 13px solid #E23F58;
-  box-shadow: 0 5px 0 0 #961B3B;
+  border: 13px solid #e23f58;
+  box-shadow: 0 5px 0 0 #961b3b;
 }
 
 .paper {
   position: absolute;
   top: -60px;
   left: -30px;
-  border: 13px solid #5470F0;
-  box-shadow: 0 5px 0 0 #2C46C0;
+  border: 13px solid #5470f0;
+  box-shadow: 0 5px 0 0 #2c46c0;
 }
 
 .scissors {
   position: absolute;
   top: -60px;
   right: -30px;
-  border: 13px solid #E79F1E;
-  box-shadow: 0 5px 0 0 #B77029;
+  border: 13px solid #e79f1e;
+  box-shadow: 0 5px 0 0 #b77029;
 }
 
-.paper, .rock, .scissors {
+.paper,
+.rock,
+.scissors {
   transform: scale(1.2);
 }
 
@@ -165,16 +167,20 @@ main {
   margin-top: 50px;
 }
 
-.yourchoice, .verdict, .housechoice {
+.yourchoice,
+.verdict,
+.housechoice {
   text-align: center;
   font-family: "Barlow Semi Condensed";
   font-stretch: semi-condensed;
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
+  z-index: 3;
 }
 
-.yourchoice, .housechoice {
+.yourchoice,
+.housechoice {
   font-family: "Barlow Semi Condensed";
   font-size: 18px;
   font-weight: 700;
@@ -201,34 +207,36 @@ main {
 }
 
 .wavyy {
-  box-shadow: 0 0 5px 40px #2B3859, 0 0 5px 90px #263554, 0 0 5px 150px #213150;
+  box-shadow: 0 0 5px 40px #2b3859, 0 0 5px 90px #263554, 0 0 5px 150px #213150;
   border-radius: 50%;
   z-index: -1;
   isolation: isolate;
 }
 
 .rocked {
-  border: 25px solid #E23F58;
-  box-shadow: 0 7px 0 0 #961B3B;
+  border: 25px solid #e23f58;
+  box-shadow: 0 7px 0 0 #961b3b;
 }
 
 .papered {
-  border: 25px solid #5470F0;
-  box-shadow: 0 7px 0 0 #2C46C0;
+  border: 25px solid #5470f0;
+  box-shadow: 0 7px 0 0 #2c46c0;
 }
 
 .scissored {
-  border: 25px solid #E79F1E;
-  box-shadow: 0 7px 0 0 #B77029;
+  border: 25px solid #e79f1e;
+  box-shadow: 0 7px 0 0 #b77029;
 }
 
-.rockedImage, .paperedImage, .scissoredImage {
+.rockedImage,
+.paperedImage,
+.scissoredImage {
   transform: scale(1.4);
 }
 
 .choiced {
   display: flex;
-  background-color: #E7E4EA;
+  background-color: #e7e4ea;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -239,7 +247,7 @@ main {
 
 .choiced::before {
   content: "";
-  box-shadow: 0 -7px 0 0 #B7BDDA;
+  box-shadow: 0 -7px 0 0 #b7bdda;
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -250,7 +258,7 @@ main {
 
 .comp {
   display: flex;
-  background-color: #E7E4EA;
+  background-color: #e7e4ea;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -261,13 +269,83 @@ main {
 
 .comp::before {
   content: "";
-  box-shadow: 0 -7px 0 0 #B7BDDA;
+  box-shadow: 0 -7px 0 0 #b7bdda;
   border-radius: 50%;
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 0;
   top: 7px;
+}
+
+.overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.rulescontent {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 30px;
+  padding-block: 20px;
+  width: 340px;
+  height: 360px;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 8px;
+  color: var(--dark-text);
+  cursor: auto;
+}
+.rulescontent p {
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.rulesbox1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.rulesbox1 img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.rulesbox2 {
+  align-self: center;
+  justify-self: center;
+}
+.rulesbox2 img {
+  width: 250px;
+  height: 230px;
+}
+
+.rulesbutton {
+  position: absolute;
+  right: 50px;
+  bottom: 25px;
+  letter-spacing: 2px;
+  width: 125px;
+  height: 40px;
+  border: 2px solid var(--header-outline);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 200ms ease;
+}
+.rulesbutton:hover {
+  bottom: 23px;
 }
 
 .attribution {
@@ -280,12 +358,103 @@ main {
   color: red;
 }
 
+@media screen and (max-width: 800px) {
+  .resultbox {
+    width: 100%;
+    height: fit-content;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "YC YC HC HC" "VD VD VD VD";
+    gap: 0;
+  }
+  .verdict {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    grid-area: VD;
+  }
+  .verdict p {
+    font-size: 58px;
+  }
+  .verdict button {
+    width: 60vw;
+    height: 15vw;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .yourchoice {
+    width: fit-content;
+    transform: scale(0.6);
+    grid-area: YC;
+  }
+  .housechoice {
+    width: fit-content;
+    transform: scale(0.6);
+    grid-area: HC;
+  }
+  .scorebox {
+    width: 110px;
+    height: 100px;
+  }
+  .options img {
+    scale: 1;
+    width: 120px;
+    height: 85px;
+  }
+  .innerbox {
+    width: 85%;
+    justify-content: space-between;
+  }
+  .innerbox2 {
+    transform: scale(0.8);
+  }
+  .rulesbutton {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+    width: 130px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .rulescontent {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+    justify-content: inherit;
+  }
+  .rulescontent .rulesbox1 {
+    margin-bottom: 100px;
+  }
+  .rulescontent .rulesbox1 p {
+    font-size: 32px;
+  }
+  .rulescontent .rulesbox2 {
+    margin-bottom: 200px;
+  }
+  .rulescontent .rulesbox2 img {
+    width: 80vw;
+    height: 80vw;
+  }
+  .closeIcon {
+    position: absolute;
+    bottom: 75px;
+    transform: scale(1.5);
+  }
+  .rulesbox1 {
+    justify-content: center;
+  }
+}
 .displayflex {
   display: flex;
 }
 
 .displayblock {
   display: block;
+}
+
+.displaygrid {
+  display: grid;
 }
 
 /*# sourceMappingURL=style.css.map */
