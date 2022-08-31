@@ -1,22 +1,22 @@
 "use strict";
 // global variables declared here
-const innerbox2 = document.querySelector(".innerbox2")
-const resultbox = document.querySelector(".resultbox")
-const hoomanChoice = document.querySelector("#hooman-choice")
-const computerChoice = document.querySelector("#computer-choice")
-const choiced = document.querySelector(".choiced")
-const comp = document.querySelector(".comp")
-const whoWon = document.querySelector(".whoWon")
-const again = document.querySelector("#again")
+const innerbox2 = document.querySelector(".innerbox2");
+const resultbox = document.querySelector(".resultbox");
+const hoomanChoice = document.querySelector("#hooman-choice");
+const computerChoice = document.querySelector("#computer-choice");
+const choiced = document.querySelector(".choiced");
+const comp = document.querySelector(".comp");
+const whoWon = document.querySelector(".whoWon");
+const again = document.querySelector("#again");
 const choicedContainer = document.querySelector("#choicedContainer");
 const compContainer = document.querySelector("#compContainer");
-const score = document.querySelector(".score")
+const score = document.querySelector(".score");
 const closeIcon = document.querySelector(".closeIcon");
 const rulesbutton = document.querySelector(".rulesbutton");
 const overlay = document.querySelector(".overlay");
 let x = window.matchMedia("(max-width: 800px)");
-let scoreUpdate = 0
-const borderList = ["rocked", "papered", "scissored"]
+let scoreUpdate = 0;
+const borderList = ["rocked", "papered", "scissored"];
 
 // Function for when the user selects a choice
 function selected(n) {
@@ -24,8 +24,8 @@ function selected(n) {
   const housePicks = Math.trunc(Math.random() * 3);
   // both choices connected together and mapped to new display
   innerbox2.classList.remove("displayblock");
-  hoomanChoice.setAttribute("src", `images/icon-${n}.svg`);
-  computerChoice.setAttribute("src", `images/icon-${housePicks}.svg`);
+  hoomanChoice.setAttribute("src", `../images/icon-${n}.svg`);
+  computerChoice.setAttribute("src", `../images/icon-${housePicks}.svg`);
   choiced.className = `choiced ${borderList[n]}`;
   comp.className = `comp ${borderList[housePicks]}`;
   // make a slight change to display if media query matches
@@ -104,24 +104,9 @@ function selected(n) {
 }
 
 // popUps to view and close rules
-closeIcon.addEventListener("click", function(){
-    overlay.classList.remove("displayflex")
-})
+closeIcon.addEventListener("click", function () {
+  overlay.classList.remove("displayflex");
+});
 rulesbutton.addEventListener("click", function () {
   overlay.classList.add("displayflex");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,63 @@
+@import url(style1.css);
+
+main{
+    --firstBG :#F4F3EE;
+    --secondBG: #E0AFA0;
+    font-family: "Barlow Semi Condensed";
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #463f3a;
+}
+a{
+    text-decoration: none;
+
+}
+
+.boxed{
+    width: 70vw;
+    max-width: 300px;
+    height: 100px;
+    color: var(--dark-text);
+    font-size: 32px;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+}
+.boxed:focus .first, .boxed:focus .second, .boxed:visited .first, .boxed:visited .second{
+    inset: 0;
+    border-radius: 0;
+    border: none;
+}
+.boxA{
+    border: 5px solid  var(--firstBG);
+}
+.boxB{
+    border:5px solid var(--secondBG);
+}
+.first, .second{
+    display: grid;
+    place-items: center;
+    position: absolute;
+    inset: 5px;
+    border-radius: 8px;
+    transition: 250ms ease;
+}
+.first:hover, .second:hover, .first:active, .second:active, .first:visited, .second:visited{
+    inset: 0;
+    border-radius: 0;
+}
+.first{
+    background-color:  var(--firstBG);
+}
+.second{
+    background-color: var(--secondBG);
+
+}
+
+@media screen and (max-width:500px) {
+
+}

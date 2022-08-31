@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="../styles/style1.css">
+  
+  <title>Game | Rock, Paper, Scissors</title>
+</head>
+<body>
+  <a href="../index.html"><img class="home" src="https://img.icons8.com/plasticine/80/000000/home.png" alt="home-icon"/></a>
+  <div class="overlay">
+    <div class="rulescontent">
+      <div class="rulesbox1">
+        <p>RULES</p>
+        <img class="closeIcon" src="../images/icon-close.svg" alt="icon-close">
+      </div>
+      <div class="rulesbox2">
+        <img src="../images /image-rules.svg" alt="image-rules">
+      </div>
+    </div>
+  </div>
+  <main>
+    <div class="box1">
+      <div class="innerbox">
+        <div class="options">
+          <img src="../images/logo.svg" alt="logo">
+        </div>
+        <div class="scorebox">
+          <p class="scoretext">SCORE</p>
+          <p class="score">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="box2">
+      <div class="innerbox2 displayblock">
+        <ul>
+          <li><img src="../images/bg-triangle.svg" alt="triangle"></li>
+          <li onclick="selected(0)" class="choice rock"> <img class="rockImage" src="../images/icon-0.svg" alt="rock-icon"> </li>
+          <li onclick="selected(1)" class="choice paper"> <img class="paperImage" src="../images/icon-1.svg" alt="paper-icon"> </li>
+          <li onclick="selected(2)" class="choice scissors"> <img class="scissorsImage" src="../images/icon-2.svg" alt="scissors-icon"> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="resultbox">
+      <div class="yourchoice">
+        <p>You Picked</p>
+        <div id="choicedContainer"><li class="choiced"> <img id="hooman-choice" class="rockedImage" src="../images/icon-0.svg" alt="rock-icon"> </li></div>
+      </div>
+      <div class="verdict">
+        <p class="whoWon">You win</p>
+        <button id="again">Play Again</button>
+      </div>
+      <div class="housechoice">
+        <p>The House Picked</p>
+        <div id="compContainer"><li  class="comp"> <img id="computer-choice" class="paperedImage" src="../images/icon-1.svg" alt="paper-icon"> </li></div>
+      </div>
+    </div>
+  </main>
+  
+  <div class="rulesbutton">RULES</div>
+
+  
+  <!-- <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.github.com/Kaptain-T">Kaptain-T</a>.
+  </footer> -->
+
+  <script src="../rps1.js"></script>
+</body>
+</html>

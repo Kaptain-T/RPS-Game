@@ -32,6 +32,12 @@ body {
   user-select: none;
 }
 
+.home{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+}
 main {
   display: flex;
   flex-direction: column;
@@ -411,12 +417,17 @@ main {
   .rulesbutton {
     left: 50%;
     transform: translateX(-50%);
-    bottom: 50px;
+    top: 87.3vh;
     width: 130px;
     height: 40px;
   }
+  .home{
+    top: 85vh;
+    bottom: 5px;
+    left: 10px;
+  }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   .rulescontent {
     height: 100vh;
     width: 100vw;
