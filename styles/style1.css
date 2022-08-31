@@ -26,7 +26,8 @@ li {
 body {
   background: radial-gradient(var(--radial-gradient));
   position: relative;
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
   width: 100vw;
   color: white;
   user-select: none;
