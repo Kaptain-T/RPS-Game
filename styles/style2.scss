@@ -59,6 +59,7 @@ main {
   border-radius: 10px;
   margin: auto;
   margin-top: 30px;
+  z-index: 10;
 }
 .options img {
   transform: scale(0.85);
@@ -186,6 +187,10 @@ main {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
+  z-index: 3;
+}
+.verdict{
+  z-index: 5;
 }
 .yourchoice,
 .housechoice {
@@ -216,7 +221,7 @@ main {
 .wavyy {
   box-shadow: 0 0 5px 40px #2b3859, 0 0 5px 90px #263554, 0 0 5px 150px #213150;
   border-radius: 50%;
-  z-index: -7;
+  z-index: -10;
 }
 
 .rocked {

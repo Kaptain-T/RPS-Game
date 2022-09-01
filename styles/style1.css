@@ -56,6 +56,7 @@ main {
   border-radius: 10px;
   margin: auto;
   margin-top: 30px;
+  z-index: 10;
 }
 
 .options img {
@@ -182,8 +183,11 @@ main {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
+  z-index: 3;
 }
-
+.verdict{
+  z-index: 5;
+}
 .yourchoice,
 .housechoice {
   font-family: "Barlow Semi Condensed";
