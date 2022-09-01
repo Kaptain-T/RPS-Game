@@ -31,7 +31,8 @@ body {
   color: white;
   user-select: none;
 }
-.home{
+
+.home {
   position: absolute;
   left: 20px;
   top: 20px;
@@ -66,7 +67,7 @@ main {
   font-family: "Barlow Semi Condensed";
   display: flex;
   flex-direction: column;
-  width: 130px;
+  min-width: 170px;
   height: 100px;
   background-color: white;
   border-radius: 8px;
@@ -74,20 +75,31 @@ main {
   align-items: center;
   margin-right: 10px;
 }
-
-.scoretext {
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: var(--score-text);
-  font-weight: 600;
+.scorebox .yourbox {
+  margin-top: 10px;
+  justify-self: flex-end;
+}
+.scorebox .housebox {
+  margin-bottom: 10px;
+  justify-self: flex-start;
 }
 
-.score {
-  color: var(--dark-text);
-  font-size: 52px;
+.yourbox, .housebox {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+
+.yourscore, .housescore {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
   font-weight: 700;
-  line-height: 48px;
-  font-stretch: semi-condensed;
+  width: 90%;
+  height: 100%;
+}
+.yourscore p, .housescore p {
+  color: var(--dark-text);
 }
 
 .box2 {
@@ -182,7 +194,6 @@ main {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
-  z-index: 3;
 }
 
 .yourchoice,
@@ -192,6 +203,7 @@ main {
   font-weight: 700;
   letter-spacing: 1px;
   gap: 20px;
+  isolation: isolate;
 }
 
 .verdict p {
@@ -215,8 +227,7 @@ main {
 .wavyy {
   box-shadow: 0 0 5px 40px #2b3859, 0 0 5px 90px #263554, 0 0 5px 150px #213150;
   border-radius: 50%;
-  z-index: -1;
-  isolation: isolate;
+  z-index: -7;
 }
 
 .rocked {
@@ -421,7 +432,7 @@ main {
     width: 130px;
     height: 40px;
   }
-  .home{
+  .home {
     top: 85vh;
     bottom: 5px;
     left: 10px;
@@ -468,4 +479,4 @@ main {
   display: grid;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style2.css.map */

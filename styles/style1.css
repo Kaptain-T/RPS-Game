@@ -182,7 +182,6 @@ main {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
-  z-index: 3;
 }
 
 .yourchoice,

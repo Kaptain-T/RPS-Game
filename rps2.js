@@ -10,13 +10,16 @@ const whoWon = document.querySelector(".whoWon");
 const again = document.querySelector("#again");
 const choicedContainer = document.querySelector("#choicedContainer");
 const compContainer = document.querySelector("#compContainer");
-const score = document.querySelector(".score");
+const you = document.querySelector(".you");
+const house = document.querySelector(".house");
 const closeIcon = document.querySelector(".closeIcon");
 const rulesbutton = document.querySelector(".rulesbutton");
 const overlay = document.querySelector(".overlay");
 let x = window.matchMedia("(max-width: 800px)");
 let scoreUpdate = 0;
 const borderList = ["rocked", "papered", "scissored"];
+const scoreboard = [0, 0];
+
 
 // Function for when the user selects a choice
 function selected(n) {
@@ -42,63 +45,73 @@ function selected(n) {
     compContainer.className = "";
   });
 
+  // checks if both scores are above zero before substracting
+  function checkAboveZero() {
+    for(let x = 0; x < 2; x++){
+      if (scoreboard[x] > 0) {
+        scoreboard[x]--;
+      } else {
+        scoreboard[x] = 0;
+      }
+    }
+  }
+  // updates both scores for results other than draw
+  function updateBoardView(picker, x){
+      scoreboard[x]++;
+      picker.textContent = scoreboard[x];
+  }
+  // updates both scores for draw result 
+  // (this function also calls the function to check if both scores are above zero)
+  function updateBoardViewDraw(){
+    if (scoreboard[0] == 1 && scoreboard[1] == 0) {
+      you.textContent = scoreboard[0];
+      house.textContent = scoreboard[1];
+    } else if (scoreboard[1] == 1 && scoreboard[0] == 0) {
+      you.textContent = scoreboard[0];
+      house.textContent = scoreboard[1];
+    } else {
+      checkAboveZero();
+      you.textContent = scoreboard[0];
+      house.textContent = scoreboard[1];
+    }
+  }
+  function updateWinStatus(winner, designedClass){
+      whoWon.textContent = `${winner}`;
+      designedClass.className = "wavyy";
+  }
   // checks who won and displays result
   if (housePicks == 0) {
     if (n == 0) {
       whoWon.textContent = "Draw!";
+      updateBoardViewDraw();
     } else if (n == 1) {
-      whoWon.textContent = "You win";
-      choicedContainer.className = "wavyy";
-      scoreUpdate++;
-      score.textContent = scoreUpdate;
+      updateWinStatus("You Win", choicedContainer);
+      updateBoardView(you, 0);
     } else {
-      whoWon.textContent = "You lose";
-      compContainer.className = "wavyy";
-      scoreUpdate--;
-      if (scoreUpdate < 0) {
-        scoreUpdate = 0;
-        score.textContent = scoreUpdate;
-      } else {
-        score.textContent = scoreUpdate;
-      }
+      updateWinStatus("You Lose", compContainer);
+      updateBoardView(house, 1);
     }
   } else if (housePicks == 1) {
     if (n == 0) {
-      whoWon.textContent = "You lose";
-      compContainer.className = "wavyy";
-      scoreUpdate--;
-      if (scoreUpdate < 0) {
-        scoreUpdate = 0;
-        score.textContent = scoreUpdate;
-      } else {
-        score.textContent = scoreUpdate;
-      }
+      updateWinStatus("You Lose", compContainer);
+      updateBoardView(house, 1);
     } else if (n == 1) {
       whoWon.textContent = "Draw!";
+      updateBoardViewDraw();
     } else {
-      whoWon.textContent = "You Win";
-      choicedContainer.className = "wavyy";
-      scoreUpdate++;
-      score.textContent = scoreUpdate;
+      updateWinStatus("You Win", choicedContainer);
+      updateBoardView(you, 0);
     }
   } else {
     if (n == 0) {
-      whoWon.textContent = "You win";
-      choicedContainer.className = "wavyy";
-      scoreUpdate++;
-      score.textContent = scoreUpdate;
+      updateWinStatus("You Win", choicedContainer);
+      updateBoardView(you, 0);
     } else if (n == 1) {
-      whoWon.textContent = "You lose";
-      compContainer.className = "wavyy";
-      scoreUpdate--;
-      if (scoreUpdate < 0) {
-        scoreUpdate = 0;
-        score.textContent = scoreUpdate;
-      } else {
-        score.textContent = scoreUpdate;
-      }
+      updateWinStatus("You Lose", compContainer);
+      updateBoardView(house, 1);
     } else {
       whoWon.textContent = "Draw!";
+      updateBoardViewDraw();
     }
   }
 }

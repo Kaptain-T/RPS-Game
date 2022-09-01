@@ -13,7 +13,6 @@
   --scissors-gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
   --paper-gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
   --rock-gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -37,7 +36,12 @@ body {
   color: white;
   user-select: none;
 }
-
+.home{
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+}
 main {
   display: flex;
   flex-direction: column;
@@ -64,27 +68,41 @@ main {
   font-family: "Barlow Semi Condensed";
   display: flex;
   flex-direction: column;
-  width: 130px;
+  min-width: 170px;
   height: 100px;
   background-color: white;
   border-radius: 8px;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
+
+  .yourbox{
+    margin-top: 10px;
+    justify-self: flex-end;
+  }
+  .housebox{
+    margin-bottom: 10px;
+    justify-self: flex-start;
+  }
 }
-.scoretext {
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: var(--score-text);
-  font-weight: 600;
+.yourbox, .housebox{
+  width: 80%;
+  height: 100%;
+  margin: auto;
 }
-.score {
-  color: var(--dark-text);
-  font-size: 52px;
+.yourscore, .housescore{
+  display: flex;
+  justify-content:space-between ;
+  font-size: 28px;
   font-weight: 700;
-  line-height: 48px;
-  font-stretch: semi-condensed;
+  width: 90%;
+  height: 100%;
+
+  p{
+    color: var(--dark-text);
+  }
 }
+
 .box2 {
   display: flex;
   justify-content: center;
@@ -168,7 +186,6 @@ main {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
-  z-index: 3;
 }
 .yourchoice,
 .housechoice {
@@ -177,6 +194,7 @@ main {
   font-weight: 700;
   letter-spacing: 1px;
   gap: 20px;
+  isolation: isolate;
 }
 .verdict p {
   font-weight: 700;
@@ -198,8 +216,7 @@ main {
 .wavyy {
   box-shadow: 0 0 5px 40px #2b3859, 0 0 5px 90px #263554, 0 0 5px 150px #213150;
   border-radius: 50%;
-  z-index: -1;
-  isolation: isolate;
+  z-index: -7;
 }
 
 .rocked {
@@ -348,35 +365,6 @@ main {
 }
 
 @media screen and (max-width: 800px) {
-//   .resultbox {
-//     flex-wrap: wrap;
-//     position: relative;
-//     width: 100vw;
-//     height: fit-content;
-//     flex-shrink: 1;
-//     gap: 0;
-//   }
-//   .verdict {
-//     order: 3;
-//     flex: 100%;
-    
-    
-//   }
-//   .yourchoice {
-//     order: 1;
-//     transform: scale(.5);
-//     flex-shrink: 1;
-//     flex: 50%;
-//     // position: absolute;
-//   }
-//   .housechoice {
-//     order: 2;
-//     transform: scale(.5);
-//     flex-shrink: 1;
-//     flex: 50%;
-//     // position: absolute;
-//   }
-
     .resultbox{
         width: 100%;
         height:fit-content;
@@ -434,9 +422,14 @@ main {
   .rulesbutton {
     left: 50%;
     transform: translateX(-50%);
-    bottom: 50px;
+    top: 87.3vh;
     width: 130px;
     height: 40px;
+  }
+    .home{
+    top: 85vh;
+    bottom: 5px;
+    left: 10px;
   }
 }
 
